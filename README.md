@@ -1,0 +1,2 @@
+# SuffixAutomaton
+Artículo de Algoritmos
