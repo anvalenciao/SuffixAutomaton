@@ -1,0 +1,33 @@
+\documentclass[9pt, spanish]{entcs}
+
+% Spanish accents
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+\usepackage[utf8]{inputenc}
+
+% The mathtools package
+% http://texdoc.net/texmf-dist/doc/latex/mathtools/mathtools.pdf
+% https://www.codecogs.com/latex/eqneditor.php
+\usepackage{mathtools}
+
+% Algorithmic package
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage{listings}
+
+% Positioning of Figures H
+\usepackage{float}
+
+% Glossary of terms
+\usepackage{glossaries}
+\makeglossaries
+\include{doc/GlossaryTerms/glossary-terms}
+
+\begin{document}
+	\input{doc/Cover/cover}
+	\input{doc/Introduction/introduction}
+
+	\printglossary[title=Glosario de términos, toctitle=Lista de términos]
+	\input{doc/Bibliography/bibliography}
+\end{document}
