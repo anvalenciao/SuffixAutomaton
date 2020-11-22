@@ -1,5 +1,7 @@
 % https://www.overleaf.com/learn/latex/Glossaries
 
+\newacronym{AFD}{AFD}{\textit{Autómata Finito Determinista}}
+
 \newglossaryentry{endpoints}
 {
 	name=puntos finales,
@@ -12,11 +14,32 @@
 	description={Un dato arbitrario que tiene algún significado o efecto en la máquina. A estos símbolos también se les llama "letras" o "átomos"}
 }
 
-\newglossaryentry{word}
+\newglossaryentry{string}
 {
-	name=palabra,
+	name=cadena,
 	description={Una cadena finita formada por la concatenación de un número de símbolos}
 }
+
+\newglossaryentry{substring}
+{
+	name=subcadena,
+	description={Una subcadena (segmento, subpalabra o factor) de una cadena es cualquier secuencia de símbolos consecutivos que aparecen en la cadena. En lenguaje formal, $t$ es una subcadena de $T$ sí y sólo si existe $x, y \in \Sigma^\ast$ tal que $T = xty$
+	}
+}
+
+\newglossaryentry{prefix}
+{
+	name=prefijo,
+	description={Un prefijo es una subcadena que aparece al principio de una cadena. Formalmente, $t$ es un prefijo de $T$ sí y sólo hay algún $y \in \Sigma^\ast$ tal que $T = ty$}
+}
+
+\newglossaryentry{suffix}
+{
+	name=sufijo,
+	description={Un sufijo es una subcadena que aparece al final de una cadena. Formalmente, $t$ es un sufijo de $T$ sí y sólo hay algún $x \in \Sigma^\ast$ tal que $T = xt$}
+}
+
+% http://www.m-hikari.com/ams/ams-2014/ams-125-128-2014/singhAMS125-128-2014.pdf
 
 \newglossaryentry{alphabet}
 {
@@ -29,3 +52,5 @@
 	name=lenguaje,
 	description={Un conjunto de palabras, formado por símbolos en un alfabeto dado. Puede ser infinito}
 }
+
+% Clausura de Kleene
