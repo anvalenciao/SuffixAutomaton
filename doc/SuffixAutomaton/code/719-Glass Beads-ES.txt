@@ -1,0 +1,34 @@
+Perlas de cristal 
+
+Había una vez una actriz famosa. Como es de esperar, ella interpretaba sobre todo comedias antiguas. Toda la gente la amaba. Pero ella no estaba interesada en las multitudes. Su gran hobby eran las perlas de cualquier tipo. Muchos fabricantes de perlas trabajaban para ella y fabricaban nuevos collares y pulseras todos los días. Un día llamó a su principal Inspector de Fabricantes de Perlas (Inspector of Bead Makers - IBM) y le dijo que quería un collar muy largo y especial.
+
+El collar debe estar hecho de perlas de cristal de diferentes tamaños conectadas entre sí pero sin ningún hilo que atraviese las perlas, lo que significa que las perlas pueden ser desconectadas en cualquier punto. La actriz eligió la sucesión de perlas que quiere tener y la IBM prometió hacer el collar. 
+
+Pero entonces se dio cuenta de un problema. La unión entre dos perlas vecinas no es muy fuerte por lo que es posible que el collar se rompa por su propio peso. La situación se vuelve aún peor cuando el collar se desarticula. Además, el punto de desconexión es muy importante. Si hay perlas pequeñas al principio, la posibilidad de desgarrarse es mucho mayor que si hay perlas grandes. IBM quiere probar la robustez de un collar por lo que necesita un programa que sea capaz de determinar el peor punto posible de desunir las perlas. 
+
+La descripción del collar es una cadena A = a_1 a_2 ... a_m que especifica los tamaños de las perlas particulares, donde se considera que el último carácter a_m precede al carácter a_1 en forma circular.
+
+Se dice que el punto disjunto i es peor que el punto disjunto j si y solo si la cadena a_i a_i+1 ... a_n a_1 ... a_i−1 es lexicográficamente más pequeña que la cadena a_j a_j+1 ... a_n a_1 ... a_j−1.
+
+La cadena a_1 a_2 ... a_n es lexicográficamente más pequeña que la cadena b_1 b_2 ... b_n si y solo si existe un entero i, i <= n, de modo que a_j = b_j, para cada j, 1 <= j < i y a_i < b_i.
+
+Entrada
+
+La entrada consta de N casos. La primera línea de la entrada contiene solo un entero positivo N. Luego sigue los casos. Cada caso consiste exactamente en una línea que contiene la descripción del collar. La longitud máxima de cada descripción es de 10000 caracteres. Cada perla está representada por un carácter en minúscula del alfabeto inglés (a–z), donde a < b <... < z.
+
+Salida
+
+Para cada caso, imprima exactamente una línea que contenga solo un número entero: el número de la perla que es la primera en la peor separación posible, es decir, tal i, que la cadena A[i] es lexicográficamente más pequeña entre todas las n posibles separaciones de un collar. Si hay más de una solución, imprima la que tenga la i más baja.
+
+Entrada de muestra
+4 
+helloworld 
+amandamanda 
+dontcallmebfu 
+aaabaaa 
+
+Salida de muestra
+10 
+11 
+6 
+5

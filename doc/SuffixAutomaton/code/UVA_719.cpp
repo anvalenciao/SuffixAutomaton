@@ -96,3 +96,113 @@ int main() {
 
     return 0;
 }
+
+/*
+S_i S_i+1 ... S_n S_1 ... S_i-1, i E [2,n] 
+
+helloworld
+elloworldh
+lloworldhe
+loworldhel
+oworldhell
+worldhello
+orldhellow
+rldhellowo
+ldhellowor
+dhelloworl
+*/
+
+/*
+amandamanda
+mandamandaa
+andamandaam
+ndamandaama
+damandaaman
+amandaamand
+mandaamanda
+andaamandam
+ndaamandama
+daamandaman
+aamandamand
+*/
+
+/*
+dontcallmebfu
+ontcallmebfud
+ntcallmebfudo
+tcallmebfudon
+callmebfudont
+allmebfudontc <--
+llmebfudontca
+lmebfudontcal
+mebfudontcall
+ebfudontcallm
+bfudontcallme
+fudontcallmeb
+udontcallmebf
+*/
+
+/*
+aaabaaa
+aabaaaa
+abaaaaa
+baaaaaa
+aaaaaab <--
+aaaaaba
+aaaabaa
+*/
+
+/*
+holaandres
+olaandresh
+laandresho
+aandreshol <--
+andreshola
+ndresholaa
+dresholaan
+resholaand
+esholaandr
+sholaandre
+*/
+
+/*
+german
+ermang
+rmange
+manger
+angerm <--
+ngerma
+*/
+
+/*
+andres <--
+ndresa
+dresan
+resand
+esandr
+sandre
+*/
+
+/*
+a
+bracadabraa
+racadabraab
+acadabraabr
+cadabraabra
+adabraabrac
+dabraabraca
+abraabracad
+braabracada
+raabracadab
+aabracadabr <--
+*/
+
+/*
+abaabc
+baabca
+aabcab <--
+abcaba
+bcabaa
+cabaab
+*/
+
