@@ -1,2 +1,54 @@
 \section{Algoritmo}\label{Algorithm}
-% autómata finito determinista
+
+\subsubsection{Pseudocódigo}
+
+
+\begin{alg}
+	Suffix Automaton Extend
+	\begin{algorithmic}[1]
+		
+		\Function{sa\_extend}{$\ell$}
+			\State $sa[i] \leftarrow x_\ell$
+			\State $newlast \leftarrow$ State-Creation
+			\State $Length[newlast] \leftarrow Length[last]+1$
+			\State $p \leftarrow last$
+		
+			\While{$p \neq$ NIL and $\delta(p, a)$ $=$ NIL}
+				\State  $E \leftarrow E + \{(p, a, newlast)\}$
+				\State  $p \leftarrow F[p]$
+			\EndWhile
+			
+			\If{$p = $ NIL}
+				\State $F[newlast] \leftarrow i$
+			
+			\Else
+				\State $q \leftarrow \delta(p, a)$
+				
+				\If{$Length[q] = Length[p]+1$}
+					\State $F[newlast] \leftarrow q$
+				
+				\Else
+					\State $q' \leftarrow$ State-Creation
+					\For{each letter $b$ such that $\delta(q, b) \neq$ NIL}
+						\State  $E \leftarrow E + \{(q', b, \delta(q, b))\}$
+					\EndFor
+					\State $Length[q'] \leftarrow Length[p]+1$
+					\State $F[newlast] \leftarrow q'$
+					\State $F[q'] \leftarrow F[q]$
+					\State $F[q] \leftarrow q'$
+					\While{$p \neq$ NIL and $\delta(p, a) = q$}
+						\State  $E \leftarrow E - \{(p, a, q)\} + \{(p, a, q')\}$
+						\State  $p \leftarrow F[p]$
+					\EndWhile
+				\EndIf
+
+			\EndIf
+			
+			\State last $\leftarrow$ newlast
+				
+		\EndFunction
+				
+	\end{algorithmic}
+\end{alg}
+
+\cite{book:Crochemore1997}

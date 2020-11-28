@@ -1,13 +1,18 @@
 \section{Autómata de sufijo}\label{SuffixAutomaton}
 Un autómata de sufijo es una estructura de datos eficiente y compacta, también conocido como Directed Acyclic Word Graph (DAWG), es el \acrshort{AFD} mínimo, que reconoce el conjunto de sufijos de una \gls{string} $S  = s_1 s_2 s_3 \dots s_n $ \cite{wiki:Suffix_automaton}, es decir, se puede usar un autómata sufijo para determinar si una \gls{string} $x$ es una \gls{substring} en tiempo lineal en su longitud $O(| x |)$ \cite{article:10.1016/j.tcs.2009.03.034}.
 
+\begin{theorem}[Principal]
+El tamaño de un autómata sufijo de una \gls{string} $x$ es $O(| x |)$. El autómata puede ser implementado en tiempo $O(| x | \times log \; card(A))$ y $O(|x|)$ espacio extra \cite{book:Crochemore1997}.
+\end{theorem}
 
 \gls{prefix}
 \gls{suffix}
 
 \subsection{Propiedades}
+% 24
+Los estados del autómata no son \glspl{substring}, los estados representan clases de equivalencia. Cada \gls{substring} de una \gls{string} pertenece a una clase de equivalencia llamada \textit{endpos} \cite{youtube:Automatas_de_Sufijos}.
 
-\subsubsection{Endpos}
+\subsubsection{End-positions (endpos)}
 
 
 % https://en.wikipedia.org/wiki/Suffix_automaton
@@ -27,3 +32,4 @@ Un autómata de sufijo es una estructura de datos eficiente y compacta, también
 % https://www.youtube.com/watch?v=axlgMCq7yTg&ab_channel=HowardCheng
 % https://www.udebug.com/UVa/719
 % https://www.wjyyy.top/1732.html
+% https://hal-upec-upem.archives-ouvertes.fr/hal-00620792/document
