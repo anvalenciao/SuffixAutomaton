@@ -5,11 +5,14 @@
 
 \lstset{
 	tabsize=2,% tab space width
+	basicstyle=\scriptsize,
 	showstringspaces=false, % don't mark spaces in strings
 	numbers=left, % display line numbers on the left
+	numbersep=\intextsep,
 	commentstyle=\color{green}, % comment color
 	keywordstyle=\color{blue}, % keyword color
-	stringstyle=\color{red} % string color
+	stringstyle=\color{red}, % string color
+	xleftmargin=\marginparsep
 }
 
 \lstinputlisting[label=SuffixAutomaton, caption=Caption, language=C++]{doc/Application/code/suffixAutomaton.cpp}
