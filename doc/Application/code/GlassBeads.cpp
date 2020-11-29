@@ -17,10 +17,10 @@ int sz, last;
 void sa_init(int size) {
     st.clear();
     st.resize(2 * size);
-    sz = last = 0;
     st[0].len = 0;
     st[0].link = -1;
-    ++sz;
+    sz = last = 0;
+    sz++;
 }
 
 void sa_extend (char c) {
