@@ -4,6 +4,36 @@
 
 
 \begin{alg}
+	Suffix Automaton - let $\delta$ be the transition function of (Q, i, T, E)
+	\begin{algorithmic}[1]
+		
+		\Function{sa}{$x$}
+			\State $(Q, E) \leftarrow (\varnothing, \varnothing)$
+			\State $i \leftarrow$ State-Creation
+			\State $Length[i] \leftarrow 0$
+			\State $F[i] \leftarrow$ NIL
+			\State $last \leftarrow i$
+			
+			\For{$\ell$ from 1 up to $|x|$}
+				\State  sa\_extend($\ell$)
+			\EndFor
+			
+			\State $T \leftarrow \varnothing$
+			\State $p \leftarrow last$
+			
+			\While{$p \neq$ NIL}
+				\State $T \leftarrow T + \{p\}$
+				\State $p \leftarrow F[p]$
+			\EndWhile
+			
+			\Return (( Q, i, T, E ), Length, F)		
+		\EndFunction
+		
+	\end{algorithmic}
+\end{alg}
+
+
+\begin{alg}
 	Suffix Automaton Extend
 	\begin{algorithmic}[1]
 		
@@ -12,12 +42,12 @@
 			\State $newlast \leftarrow$ State-Creation
 			\State $Length[newlast] \leftarrow Length[last]+1$
 			\State $p \leftarrow last$
-		
+
 			\While{$p \neq$ NIL and $\delta(p, a)$ $=$ NIL}
 				\State  $E \leftarrow E + \{(p, a, newlast)\}$
 				\State  $p \leftarrow F[p]$
 			\EndWhile
-			
+
 			\If{$p = $ NIL}
 				\State $F[newlast] \leftarrow i$
 			
