@@ -41,9 +41,10 @@ Dos \glspl{substring}, $t_1$ y $t_2$, son endpos-equivalentes sí y sólo si $en
 \end{example}
 
 \subsubsection{Suffix Links (endpos)}
+\textit{Suffix Links} relaciona $endpos$ de forma unidireccional. Sea $V$ un estado $v \neq t_0$, se tiene que $v$ es una clase de equivalencia que contiene a los \gls{string} con el mismo $endpos$. Se sabe que los primeros sufijos de $w$ pertenecen a $v$. Sin embargo, en el primer momento en que un sufijo de $w$ tenga un $endpos$ diferente, se arma un \textit{suffix link} entre $v$ y el endpos de ese sufijo \cite{youtube:Automatas_de_Sufijos}.
 
 \begin{definition}
-	link(Q): punta a la clase de equivalencia \textit{endpos} definida por "el sufijo más largo de w que no pertenece a Q" \cite{web:suffix-automata}.
+	link(Q): punta a la clase de equivalencia \textit{endpos} definida por ``el sufijo más largo de $w$ que no pertenece a $Q$" \cite{web:suffix-automata}.
 \end{definition}
 
 % https://en.wikipedia.org/wiki/Suffix_automaton
