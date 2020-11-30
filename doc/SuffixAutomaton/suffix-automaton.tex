@@ -1,19 +1,50 @@
 \section{Autómata de sufijo}\label{SuffixAutomaton}
-Un autómata de sufijo es una estructura de datos eficiente y compacta, también conocido como Directed Acyclic Word Graph (DAWG), es el \acrshort{AFD} mínimo, que reconoce el conjunto de sufijos de una \gls{string} $S  = s_1 s_2 s_3 \dots s_n $ \cite{wiki:Suffix_automaton}, es decir, se puede usar un autómata sufijo para determinar si una \gls{string} $x$ es una \gls{substring} en tiempo lineal en su longitud $O(| x |)$ \cite{article:10.1016/j.tcs.2009.03.034}.
+Un autómata de sufijo es una estructura de datos eficiente y compacta, también conocido como Directed Acyclic Word Graph (DAWG), es el \acrshort{AFD} mínimo, que reconoce el conjunto de sufijos de una \gls{string} $S  = s_1 s_2 s_3 \dots s_n $ \cite{wiki:Suffix_automaton}, es decir, se puede usar un autómata de sufijo para determinar si una \gls{string} $S$ es una \gls{substring} en tiempo lineal en su longitud $O(| S |)$ \cite{article:10.1016/j.tcs.2009.03.034}.
 
 \begin{theorem}[Principal]
-El tamaño de un autómata sufijo de una \gls{string} $x$ es $O(| x |)$. El autómata puede ser implementado en tiempo $O(| x | \times log \; card(A))$ y $O(|x|)$ espacio extra \cite{book:Crochemore1997}.
+El tamaño de un autómata sufijo de una \gls{string} $S$ es $O(| S |)$. El autómata puede ser implementado en tiempo $O(| S | \times log \; card(A))$ y $O(|S|)$ espacio extra \cite{book:Crochemore1997}.
 \end{theorem}
 
-\gls{prefix}
-\gls{suffix}
+%\gls{prefix}
+%\gls{suffix}
 
 \subsection{Propiedades}
 % 24
+El autómata de sufijo contiene información sobre todas las \glspl{substring} de la \gls{string} $S$. Para construir un autómata de sufijo en tiempo lineal, es necesario comprender dos conceptos \textit{End Positions} y \textit{Suffix Links}.
+
+\subsubsection{End Positions (endpos)}
 Los estados del autómata no son \glspl{substring}, los estados representan clases de equivalencia. Cada \gls{substring} de una \gls{string} pertenece a una clase de equivalencia llamada \textit{endpos} \cite{youtube:Automatas_de_Sufijos}.
 
-\subsubsection{End-positions (endpos)}
+\begin{definition}
+	endpos(t): El conjunto de todas las posiciones en la \gls{string} $S$ donde termina la \gls{substring} $t$ \cite{web:suffix-automata}.
+\end{definition}
 
+\begin{example}
+	Sea $t_1=``bc"$ y $t_2=``abc"$ \glspl{substring} de $S = ``abcdbc"$, entonces $endpos(t_1) = \{3, 6\}$ y $endpos(t_2) = \{3\}$ \cite{web:suffix-automata}.
+	Sea $t=``bra"$ una \gls{substring} de $S = ``abracadabra"$, entonces $endpos(t) = \{3, 10\}$.
+	Nótese que $endpos(t)$ es un conjunto cuyos elementos son posiciones finales de $t$ en todas sus ocurrencias en $S$ \cite{youtube:Automatas_de_Sufijos}.
+\end{example}
+
+Dos \glspl{substring}, $t_1$ y $t_2$, son endpos-equivalentes sí y sólo si $endpos(t_1) = endpos(t_2)$. 
+
+\begin{example}
+	Sea $t_1=``abra", t_2=``bra", t_3=``ra", t_4=``a"$ \glspl{substring} de $S = ``abracadabra"$, entonces $endpos(t_1) = \{3, 10\}, endpos(t_2) = \{3, 10\}, endpos(t_3) = \{3, 10\}, endpos(t_4) = \{0, 3, 5, 7, 10\}$.
+	\begin{center}
+		\begin{tabular}{lllllllllll}
+			\multicolumn{11}{c}{S}                     \\
+			a & b & r & a & c & a & d & a & b & r & a  \\
+			0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10
+		\end{tabular}
+	\end{center}
+	
+	Por lo tanto, $endpos(t_1), endpos(t_2), endpos(t_3)$ son endpos-equivalentes, lo que equivale a decir que una de las palabras $t_1, t_2, t_3 $ es un \gls{suffix} de la otra. Nótese que $endpos(t_{1\leq3})$ y $endpos(t_4)$ no lo son.
+\end{example}
+
+\subsubsection{Suffix Links (endpos)}
+
+\begin{definition}
+	link(Q): punta a la clase de equivalencia \textit{endpos} definida por "el sufijo más largo de w que no pertenece a Q" \cite{web:suffix-automata}.
+\end{definition}
 
 % https://en.wikipedia.org/wiki/Suffix_automaton
 % https://es.qaz.wiki/wiki/Suffix_automaton
