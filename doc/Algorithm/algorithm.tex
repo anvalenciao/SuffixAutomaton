@@ -1,13 +1,25 @@
+%\def\NoNumber#1{{\def\alglinenumber##1{}\State #1}\addtocounter{ALG@line}{-1}}
+\newcommand*{\skipnumber}[2][1]{%
+	{\renewcommand*{\alglinenumber}[1]{}\State #2}%
+	\addtocounter{ALG@line}{-#1}}
+
 \section{Algoritmo}\label{Algorithm}
 
-\subsubsection{Pseudocódigo}
+El algoritmo es una construcción \textit{on-line},  es decir, se agregarán los caracteres de la cadena uno por uno, y se modificará el autómata en consecuencia en cada paso \cite{web:cp-suffix-automaton}. En cada etapa de la construcción, justo después de procesar un prefijo $x_1x_2...x_\ell$ de $x$, el autómata de sufijo está construido. Los estados terminales se conocen implícitamente por la ruta del sufijo del $last_{x1x2...x\ell}$. El estado $last_{x1x2...x\ell}$ está explícitamente representado por una variable en la función que construye el autómata.
 
+También se utilizan otros dos elementos: \textit{Length} and \textit{F}. El arreglo \textit{Length} representa la función $length_x$ definida sobre los estados del autómata, se utiliza para determinar los llamados \textit{solid edges} o \textit{transiciones} en la construcción del sufijo autómata.
+
+Los \textit{suffix links} de estados (diferente del estado inicial) son almacenados en un arreglo denotado por $F$ que representa la función $f_x$ \cite{book:Crochemore1997}.
+
+\subsubsection{Pseudocódigo}
+Los algoritmos~\ref{alg:sa} y~\ref{alg:sa_extend} dan el pseudocódigo para construir el autómata de sufijo.
 
 \begin{alg}
-	Suffix Automaton - let $\delta$ be the transition function of (Q, i, T, E)
+	Suffix Automaton - Construcción \textit{on-line} del autómata de sufijo de la \gls{string} $x$.
+	\label{alg:sa}
 	\begin{algorithmic}[1]
-		
 		\Function{sa}{$x$}
+			\State let $\delta$ be the transition function of $(Q, i, T, E)$
 			\State $(Q, E) \leftarrow (\varnothing, \varnothing)$
 			\State $i \leftarrow$ State-Creation
 			\State $Length[i] \leftarrow 0$
@@ -28,13 +40,13 @@
 			
 			\State \Return (( Q, i, T, E ), Length, F)		
 		\EndFunction
-		
 	\end{algorithmic}
 \end{alg}
 
 
 \begin{alg}
 	Suffix Automaton Extend
+	\label{alg:sa_extend}
 	\begin{algorithmic}[1]
 		
 		\Function{sa\_extend}{$\ell$}
@@ -80,5 +92,3 @@
 				
 	\end{algorithmic}
 \end{alg}
-
-\cite{book:Crochemore1997}
